@@ -5,10 +5,12 @@ Name: Raven A. Alexander
 Date: 2022-03-15
 Description: This program brute forces the key of a caeser ciphered text to produce the plaintext. Given a file containing ciphered
 text as well as a file containing a dictionary of words titled "dictionary-01.txt", et-tu-brute will decrypt the cipher and return the
-plaintext that best corresponds with the words in the dictionary file.
+plaintext that has the most words in the dictionary.
+Version: Python 3.10.2 64-bit
 """
 import fileinput
 import re
+from sys import exit,stdin
 
 
 def _shift(x: str,y: int)-> str:
@@ -22,7 +24,6 @@ def _check_valid(mx: tuple, p:str, k:int)-> tuple:
     l = re.split(r'\n| ',p)
     for word in l:
         if word.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?") in DICTIONARY:
-            print(word)
             v+=1
     if (v > mx[1]):
         mx = p,v,k
@@ -31,38 +32,46 @@ def _check_valid(mx: tuple, p:str, k:int)-> tuple:
 def decrypt():
     """Decrypt a given caeser cipher using a brute force technique with a dictionary."""
     key = 1
-    nl=""
+    l=""
     p =""
     valid = "",0,1
     while(key<len(ALPHABET)):
-        for line in CIPHER:
-            for char in line:
-                if char == '\n':
-                    nl+=char
-                    continue
-                nl+=_shift(char,key)
-            p+=nl
-            nl=""
-        valid = _check_valid(valid,p,key)
-        p=""
+        for char in CIPHER:
+            if char == '\n':
+                l+=char
+                continue
+            l+=_shift(char,key)
+        valid = _check_valid(valid,l,key)
+        l=""
         key+=1
     return valid
 
 if __name__ == "__main__":
-    DICTIONARY = []
-    # read in dictionary as list
-    with open ('dictionary-01.txt','r') as file:
-        for line in file:
-            DICTIONARY.append(line.strip('\n').lower())
-
     ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/? "
-
+    #ALPHABET = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
+    DICTIONARY = []
+    CIPHER = ""
+    # read in dictionary as list
+    try:
+        with open ('dictionary-01.txt','r') as file:
+            for line in file:
+                DICTIONARY.append(line.strip('\n').lower())
+    except:
+        print("Invalid dictionary!\nEnsure the dictionary is titled dictionary-01.txt, and is in the same directory as the py program.")
+        exit()
+   
     # read in file form stdin
-    CIPHER = []
-    for line in fileinput.input():
-        CIPHER.append(line)
+    try:
+        for line in stdin:
+            CIPHER+=line
+    except:
+        print("File with ciphered text invalid.\nEnsure the cipher text is piped into the program as shown below:\npython et-tu-brute.py < cipher.txt")
+        exit()
+    
+    # decrypt
+    V = decrypt()
+    print("SHIFT={}:\n{}".format(V[2],V[0]),end="")
 
-    print(decrypt())
 
 
 
