@@ -1,5 +1,4 @@
 #! python
-# big O of around n^3; not ideal but it gets the job done
 """
 Name: Raven A. Alexander
 Date: 2022-03-15
@@ -8,7 +7,6 @@ text as well as a file containing a dictionary of words titled "dictionary-01.tx
 plaintext that has the most words in the dictionary.
 Version: Python 3.10.2 64-bit
 """
-import fileinput
 import re
 from sys import exit,stdin
 
@@ -25,6 +23,9 @@ def _check_valid(mx: tuple, p:str, k:int)-> tuple:
     for word in l:
         if word.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?") in DICTIONARY:
             v+=1
+        if (v/len(l)) >= THRESH:
+            mx = p,-1,k
+            return mx
     if (v > mx[1]):
         mx = p,v,k
     return mx
@@ -33,9 +34,10 @@ def decrypt():
     """Decrypt a given caeser cipher using a brute force technique with a dictionary."""
     key = 1
     l=""
-    p =""
     valid = "",0,1
     while(key<len(ALPHABET)):
+        if valid[1] == -1:
+            return valid
         for char in CIPHER:
             if char == '\n':
                 l+=char
@@ -47,10 +49,13 @@ def decrypt():
     return valid
 
 if __name__ == "__main__":
+    # GLOBALS 
     ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/? "
     #ALPHABET = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
     DICTIONARY = []
     CIPHER = ""
+    THRESH = .65
+
     # read in dictionary as list
     try:
         with open ('dictionary-01.txt','r') as file:
@@ -70,6 +75,8 @@ if __name__ == "__main__":
     
     # decrypt
     V = decrypt()
+
+    # display
     print("SHIFT={}:\n{}".format(V[2],V[0]),end="")
 
 
