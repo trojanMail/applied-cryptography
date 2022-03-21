@@ -4,7 +4,7 @@ Name: Raven A. Alexander
 Date: 2022-03-15
 Description: This program brute forces the key of a caeser ciphered text to produce the plaintext. Given a file containing ciphered
 text as well as a file containing a dictionary of words titled "dictionary-01.txt", et-tu-brute will decrypt the cipher and return the
-plaintext that has the most words in the dictionary.
+plaintext that has the most matches to words in the dictionary.
 Version: Python 3.10.2 64-bit
 """
 import re
@@ -21,7 +21,7 @@ def _check_valid(mx: tuple, p:str, k:int)-> tuple:
     v = 0
     l = re.split(r'\n| ',p)
     for word in l:
-        if word.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?") in DICTIONARY:
+        if word.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?").lower() in DICTIONARY:
             v+=1
         if (v/len(l)) >= THRESH:
             mx = p,-1,k
