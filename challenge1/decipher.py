@@ -2,35 +2,34 @@
 """
 Name: Raven A. Alexander
 Date: 2022-03-15
-Description: This program brute forces the key of a keyword ciphered text to produce the plaintext. Given a file containing ciphered
-text as well as a file containing a dictionary of words titled "dictionary-01.txt", abraxas will decrypt the cipher and return the
-plaintext that has the most matches to words in the dictionary.
-Version: Python 3.10.2 64-bit
+Description: This program deciphers a given file using a specific cipher.
 """
 import re
 from sys import exit,stdin
+from sys import argv
 from math import floor
-from time import time
+
+def _shift(x: str,y: int)-> str:
+    """Shifts a given char."""
+    x =(ALPHABET.index(x)-y)%len(ALPHABET)
+    return ALPHABET[x]
 
 def _sub(x: str, p: str)-> str:
     """Substitutes a character in a cipher for a character in a alphabet."""    
-    try:
-        return ALPHABET[p.index(x)]
-    except:
-        print("Substring not found! Ensure you have uncommented the correct alphabet.")
-        exit()
+    return ALPHABET[p.index(x)]
     
-def lower_DICT():
+def simple_DICT():
     """Simplifies words in global dictionary."""
     for i,j in enumerate(DICT):
         DICT[i] = j.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?").lower()
 
-def _check_valid(mx: tuple, p:str, k:str)-> tuple:
+def _check_valid(mx: tuple, p:str, k)-> tuple:
     """Return the plaintext string with the most matching words in the dictionary."""
     v = 0
     l = re.split(r'\n| ',p)
     r = floor(len(l)/6)
     if r > 50: r = 50
+    print(k)
     for word in l[:r]:
         if word.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?").lower() in DICT:
             v+=1
@@ -41,7 +40,7 @@ def _check_valid(mx: tuple, p:str, k:str)-> tuple:
         mx = p,v,k
     return mx
 
-def decrypt(d: list):
+def keyword(d: list):
     """Decrypt a given cipher using a brute force technique with a dictionary."""
     l=""
     valid = "",0,1
@@ -58,6 +57,24 @@ def decrypt(d: list):
         l=""
     if (valid[1]/len(re.split(r'\n| ',valid[0])) < THRESH):
         valid = valid[0],-2,valid[1]
+    return valid
+
+def caesar():
+    """Decrypt a given caeser cipher using a brute force technique with a dictionary."""
+    key = 1
+    l=""
+    valid = "",0,1
+    while(key<len(ALPHABET)):
+        if valid[1] == -1:
+            return valid
+        for char in CIPHER:
+            if char == '\n':
+                l+=char
+                continue
+            l+=_shift(char,key)
+        valid = _check_valid(valid,l,key)
+        l=""
+        key+=1
     return valid
 
 def filter_dict(d: list):
@@ -84,15 +101,14 @@ def _get_newalphabet(k: str)-> str:
     for i in k:
         alpha = alpha.replace(i,'')
     k += alpha
-    # print(k)
     return k
 
 if __name__ == "__main__":
     # GLOBALS 
-    #ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/? "
-    ALPHABET = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
+    ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/? "
+    #ALPHABET = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
     CIPHER = ""
-    THRESH = .75
+    THRESH = .65
     DICT = []
     # read in dictionary as list
     try:
@@ -115,16 +131,26 @@ if __name__ == "__main__":
         exit()
     
     # decrypt
-    lower_DICT()
-    start = time()
-    V = decrypt(new_dict)
-    end = time()
+    simple_DICT()
+
+    # choose correct cipher
+    if argv[1] == "caesar":
+        V = caesar()
+    if argv[1] == "keyword":
+        V = keyword(new_dict)
 
     # display
     if V[1] == -2:
         print("No valid plaintext found from words in dictionary! Ensure you have uncommented the correct alphabet.")
     else:
-        print("KEY:{}\n{}".format(V[2],V[0]),end="")
+        if argv[2] == "-o":
+            with open("test.txt","w") as test:
+                test.write(V[0])
+        elif argv[2] == "-p":
+            print("KEY:{}\n{}".format(V[2],V[0]),end="")
+
+
+
 
 
 
