@@ -94,5 +94,5 @@ if __name__ == "__main__":
     # excute code
     CIPHER = func[0]()
     
-    with open("test.txt","w") as test:
+    with open("cipher.txt","w") as test:
         test.write(CIPHER)

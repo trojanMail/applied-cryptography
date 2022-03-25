@@ -13,3 +13,16 @@ length of string is multiple of 4
 
 https://base64.guru/tools/validator
     - checks whether a given text is BASE64 (may be quicker)
+https://www.base64encode.org/
+    - encodes text to base64
+https://www.base64decode.org/
+    - decodes base64 to text
+
+USEFUL STUFF
+    - ./encipher method key alphabet < plaintext 
+    - ./decipher method --option < ciphertext 
+
+DELIVERABLES
+Text file
+Process and modified codes
+Writeup

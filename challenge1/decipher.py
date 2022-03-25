@@ -143,7 +143,7 @@ if __name__ == "__main__":
         print("No valid plaintext found from words in dictionary! Ensure you have uncommented the correct alphabet.")
     else:
         if argv[2] == "-o":
-            with open("test.txt","w") as test:
+            with open("plain.txt","w") as test:
                 test.write(V[0])
         elif argv[2] == "-p":
             print("KEY:{}\n{}".format(V[2],V[0]),end="")
