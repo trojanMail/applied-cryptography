@@ -29,7 +29,6 @@ def _check_valid(mx: tuple, p:str, k)-> tuple:
     l = re.split(r'\n| ',p)
     r = floor(len(l)/6)
     if r > 50: r = 50
-    print(k)
     for word in l[:r]:
         if word.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?").lower() in DICT:
             v+=1
@@ -105,8 +104,8 @@ def _get_newalphabet(k: str)-> str:
 
 if __name__ == "__main__":
     # GLOBALS 
-    ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/? "
-    #ALPHABET = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
+    #ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/? "
+    ALPHABET = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
     CIPHER = ""
     THRESH = .65
     DICT = []

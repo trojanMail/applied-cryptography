@@ -1,21 +1,213 @@
-*ExQwExSBwVLRwKLQFzBAwQLAxVvw5wKLQFzBAwQExQwFCwVLRwLRQIFKBwQEBwBVBPqwKLPBqwxKAwJLRQEwLKwVLROwCxzBwTFQEwVLROwCFKDBOqwVLRwJxHBwxKwp5pwTEFzEwJxHBPwMBOCBzQwPBKPBqwyRQwFPwPLJBQEFKDw5wKBSBOwKLQFzBAwyBCLOBsw*ExQwExSBwVLRwKLQFzBAwQLAxVv
-%EBwIBxQEBOwGxzHBAwPELTBAwQEBwPzxOPwLCwyBFKDwEFPwCxSLOFQBwCLOwVBxOPsw5QwTLOBwQELPBwPzxOPwTFQEwMOFABqwCBBIFKDwQExQwQEBVwBKExKzBAwEFPwMOBPBKzBwOxQEBOwQExKwAFJFKFPEFKDwFQsw%EBwPzxOPwDxSBwFQwzExOxzQBOwxKAwExAwKLQwLSBOTEBIJBAwQLwQEBwMLFKQwQExQwFQwExAwyBzLJBwOxQQVsw%EBwGxzHBQwTxPwFKwFQPwMOFJBwxKAwFQwHKBTwFQs
-4BwzLRIAKoQwOBJBJyBOwBUxzQIVwTEBOBwEBwExAwOBxAwFQqwyRQwEBwTxPwPROBwQExQwEBwExAsw%EBwCxzQwQExQwPEBwAFAKoQwyBIFBSBwEFJwTxPwNRFQBwCORPQOxQFKDwxPwEBwyBDxKwQLwPBxOzEwQEBw5KQBOKBQwQLwCFKAwQEBwxOQFzIBsw5QwTxPKoQwxPwFCwFQwTxPwPLJBQEFKDwQExQwPBBJBAwFJMLPPFyIBsw)BQwPEBwFKPFPQBAwLKwxITxVPwPBBFKDwQEBwPLROzBwTEBKBSBOwEBwPQxQBAwxwCxzQs
-%EBwABPBOQwTFKAwyIBTwQEBwQRJyIBTBBAwFKwCOLKQwLCwQEBwzxOswXIBUwPTBOSBAwQLwxSLFAwQEBwQRJyIBTBBAqwyRQwEBwQROKBAwQEBwTEBBIwxwyFQwQLLwPQOLKDwxKAwQEBwzxOwIBCQwQEBwOLxAwxKAwPHFAABAwLKQLwQEBwAFOQwJBAFxKsw4BwFKPQxKQIVwPIxJJBAwLKwQEBwyOxHBPwxKAwQEBwzxOwPQLMMBAwFKwxwzILRAwLCwAFOQsw*EBKwQEBwARPQwzILRAwExAwPBQQIBAwxKAwEBwzLRIAwPBBwxOLRKAwEFJwxDxFKqwEBwOBxIFWBAwQExQwEBoAwPLJBELTwzOLPPBAwLSBOwFKQLwxKwBKQFOBIVwKBTwAFJBKPFLKs
-%FJBwFPwxIIwOBIxQFSBwyxPBAwLKwxDBwxKAwBUMBOFBKzBsw*EBKwVLRwxOBwxwzEFIAwxKwELROwFPwxwILKDwQFJBwQLwTxFQwyRQwxwSBOVwPELOQwQFJBwTEBKwQExQoPwxIIwQEBwQFJBwVLRwxOBwxIILTBAwLKwVLROwF!xAswXPwxwQBBKxDBOwQFJBwDLBPwCxPQBOwQEBwJLOBwABxAIFKBPwVLRwExSBwxKAwQEBwJLOBwVLRwMOLzOxPQFKxQBswXPwxwVLRKDwxARIQqwVLRwQEFKHwVLRwExSBwCLOBSBOwQLwIFSBwxKAwALKoQwxMMOBzFxQBwQEBwQFJBwVLRwPMBKAwTFQEwLQEBOPswXPwxwJFAAIBcxDBAwxARIQqwQFJBwCIFBPwyVwxPwVLRwTxQzEwVLROwzEFIAOBKwDOLTwRMswXKAwCFKxIIVqwxPwVLRwDBQwLIAwxKAwVLRwExSBwCBTBOwOBPMLKPFyFIFQFBPwxKAwCBTBOwABJxKAPwLKwVLRqwQFJBwPILTPsw)LRwxMMOBzFxQBwBxzEwAxVwxKAwxOBwQExKHCRIwVLRwxOBwxIFSBswXKwELROwFPwQEBwPxJBwxJLRKQwLCwQFJBwCLOwBSBOVLKBwVBQwFQwzxKwCBBIwPLwAFCCBOBKQwFKwELTwFQwDLBPwyVs
-$EBwAFAKoQwIFHBwQEBwCLLAsw$EBwKBSBOwAFAsw$EBwJxABwQEBwRPRxIwzLJMIxFKQPwxKAwPQxOQBAwQEBwQxKQORJwEBwHKBTwTxPwzLJFKDswYRQwQEFPwQFJBwTxPwAFCCBOBKQsw5KPQBxAwLCwQOVFKDwQLwMIxzxQBwEBOwxKAwEBOwRKOBxPLKxyIBwABJxKAPqwEBwGRPQwPQxOBAwxQwEBOwxKAwTxQzEBAwEBOwJBIQALTKwTFQELRQwPxVFKDwxwTLOAs
-4BwLOABOBAwEFPwOBDRIxOwyOBxHCxPQsw%TLwBDDPwPRKKVPFABwRMqwExPEwyOLTKPqwxKAwQTLwPQOFMPwLCwyxzLKsw4BwzLKQFKRBAwQLwILLHwxQwQEBwJBKRwTLKABOFKDwFCwQEFPwTLRIAwyBwQEBwAxVwEBwxAABAwPLJBQEFKDwKBTsw%EFPwTxPwxIPLwMxOQwLCwQEBwOLRQFKBswXwCBTwPBzLKAPwLCwEBPFQxQFLKwQLwPBBwFCwPLJBQEFKDwBIPBwTLRIAwyBwxAABAwQLwQEBwLOABOwyBCLOBwABJROFKDwxKAwPxVFKDwQExQwTLRIAwyBwxIIsw5QwTxPwQEBwPxJBwBUxzQwJBxIwQExQwEBwExAwLOABOBAwBSBOVwAxVwCLOwQEBwMxPQwQTLwVBxOPs
-2FKAFKDwQEBwQORQEwTLRIAKoQwyBwBxPVqwQExQoPwCLOwPROBsw%EBKwQEBOBwTxPwQEBwNRBPQFLKwLCwTEBQEBOwLOwKLQw6xKBwOBxIIVwTxKQBAwQLwHKLTwQEBwQORQEsw%ExQoPwQEBwQEFKDwQExQwyLQEBOBAwEBOwJLPQsw5QwTxPKoQwQEBwAFCCFzRIQVwLCwxzQRxIIVwCFKAFKDwLRQwTExQwExMMBKBAwQExQwTxPwQEBwLyPQxzIBqwyRQwExSFKDwQLwIFSBwTFQEwQExQwFKCLOJxQFLKwLKzBwFQwTxPwCLRKAs
-4BwExAwALKBwBSBOVQEFKDwOFDEQsw%EBOBwExAwyBBKwKLwJFPQxHBPwQEOLRDELRQwQEBwBKQFOBwMOLzBPPsw5QwExAwyBBKwMBOCBzQFLKwxKAwEBwHKBTwFQwTFQELRQwxwALRyQqwyRQwQEBwOBPRIQPwPQFIIwPQxOBAwyxzHwxQwEFJwTFQEwQEBwCxzQwQExQwEBwExAwILPQs
-5oJwJBxKQwQLwyBwTOFQFKDwxQwQEFPwJLJBKQsw*ExQw5wJBxKwFPqw5oJwJBxKQwQLwyBwTOFQFKDwPLJBQEFKDwBIPBwxQwQEFPwJLJBKQsw%EBwALzRJBKQw5oJwJBxKQwQLwyBwTOFQFKDwFPqwLCwzLROPBqwLMBKwFKwxKLQEBOwMOLDOxJwLKwJVwzLJMRQBOwxKAwFPwMxQFBKQIVwxTxFQFKDwJVwxQQBKQFLKsw)BQwEBOBw5wxJwMILKHFKDwALTKwPBKPBIBPPwPBKQFJBKQPwFKwQEFPwMxOxDOxMEwyBzxRPBwFQoPwBxPFBOwQLwALwQExKwQLwTLOHwLKwxKVQEFKDwMxOQFzRIxOIVwJBxKFKDCRIsw5wxJwDOxQBCRIwCLOwQEBwAFPQOxzQFLKs
-5QwTxPwQEBwyBPQwzLJMIFJBKQwQExQwEBoAwBSBOwOBzBFSBAwxIQELRDEwQEBwMBOPLKwTELwDxSBwFQwIFHBIVwKBSBOwHKBTsw5QwExAwyBBKwxKwLCCcExKAwLyPBOSxQFLKwLKwEFPwxyFIFQVwQLwELIAwxwzLKSBOPxQFLKwxKAwxzQRxIIVwxAAwMBOQFKBKQwFKCLOJxQFLKwQLwFQwLKwMOxzQFzxIIVwxKVwQLMFzswXIQELRDEwEBwExAKoQwzLKPzFLRPIVwPQOFSBAwQLwyBwxyIBwQLwALwPLqwEBoAwPQxOQBAwQLwSLOxzFLRPIVwOBxAwQEBwKBTPwTEBKwEBwzLRIAKoQwHBBMwRMwLKwQLMFzPwEFPwCOFBKAPwAFPzRPPBAwyBzxRPBwQEBFOwzLKSBOPxQFLKPwTBKQwxyLSBwEFPwEBxAsw%EBwCxzQwQExQwPLJBLKBwExAwKLQFzBAwBKLRDEwQLwzLJMIFJBKQwEFJwQExQwEBwzLRIAwQxIHwFKQBIIFDBKQIVwxyLRQwJxKVwQLMFzPwJBxKQwQExQwEBwExAwPRzzBBABAwFKwEFPwNRBPQwQLwyBwyBQQBOwFKCLOJBAs
-4FPwMxOBKQPwzLKQFKRBAwQLwNRBPQFLKwEFJsw4BwAFAKoQwHKLTwTExQwQLwPxVwQLwQEBJwPFKzBwQEBVwOBCRPBAwQLwyBIFBSBwQEBwQORQEsw4BwBUMIxFKBAwxDxFKwxKAwxDxFKqwxKAwQEBVwAFPJFPPBAwEFPwBUMIxKxQFLKwxPwxwCFDJBKQwLCwEFPwFJxDFKxQFLKsw%EBOBwTxPwKLwTxVwQExQwDOxKAMxqwTELwExAwyBBKwABxAwCLOwCFSBwVBxOPqwzLRIAwExSBwQLIAwEFJwTEBOBwQEBwQOBxPROBwExAwyBBKwEFAABKsw~CwzLROPBqwFQwAFAKoQwEBIMwQExQwDOxKAMxwTxPwOLxOFKDwTFQEwIxRDEQBOwFKwQEBwzExFOwKBUQwQLwEFJwxPwEBwQOFBAwQLwBUMIxFKwLKzBwxDxFKwELTwEBoAwCLRKAwFQs
-YBQQVwABzFABAwQLwTOFQBwxwPELOQwPQLOVwxKAwPEBwTxPwPROBwFQwTxPwDLFKDwQLwyBwxJxWFKDsw$EBwExAwxIOBxAVwTOFQQBKwFQwFKwEBOwEBxAwxKAwBxzEwQFJBwPEBwQELRDEQwxyLRQwFQwPEBwDOFKKBAwCOLJwBxOwQLwBxOwHKLTFKDwELTwTLKABOCRIwFQwTLRIAwyBsw$EBwzLRIAwFJxDFKBwQEBwxzzLIxABPwzLJFKDwFKwxKAwQEBwMOxFPBwPEBwTLRIAwOBzBFSBwCLOwzOBxQFKDwPRzEwxwTLKABOCRIwMFBzBsw$EBwTxPwQEBOBCLOBwBUQOBJBIVwCORPQOxQBAwTEBKwPEBwxzQRxIIVwPxQwALTKwQLwTOFQBwQEBwPELOQwPQLOVwxKAwQEBwPQLOVwQExQwTxPwPLwyBxRQFCRIwFKPFABwEBOwEBxAwOBCRPBAwQLwzLJBwLRQwQExQwTxVwLKwMxMBOs
-%EBwELRPBwTxPwILzxQBAwxQwQEBwQLMwLCwQEBwEFIIwxQwQEBwBKAwLCwxwTFKAFKDwOLxAsw5QwTxPKoQwLySFLRPwQExQwQEBwELRPBwTxPwQEBOBqwyRQwBSBOVLKBwFKwQLTKwHKBTwQExQwFQwBUFPQBAsw%EBVwTBOBwGRPQwxIIwQLLwxCOxFAwQLwBSBOwDLwxKAwPBBwFQwFKwMBOPLKs
-%EBwAORDwPBBHBOPwTLRIAwzLJBwFKQLwQEBwBJBODBKzVwOLLJwxKAwPzOBxJwxyLRQwELTwJRzEwMxFKwQEBVwTBOBwFKsw*EBKwVLRwQLIAwQEBJwQExQwVLRwTLRIAwPQxOQwBIBSxQFKDwQEBFOwMxFKwTFQEw%VIBKLIwLOwXASFIwFKPQBxAwLCwxwKxOzLQFzwQEBVwyBzxJBwKxPQVwxKAwzLJyxQFSBsw%EBVwTLRIAwPQxOQwQBIIFKDwVLRwTExQwAORDwxKAwALPBwQEBVwExAwQLwExSBwQLwJxHBwQEBFOwMxFKwQLIBOxyIBswXCQBOwABxIFKDwTFQEwQEBwPxJBwAORDwPBBHBOPwPBSBOxIwQFJBPwxwJLKQEwFQwDBQPwLIAsw$LJBwLCwQEBwALzQLOPwTLRIAwDFSBwFKwxKAwDFSBwQEBJwxwALPBwLCwJLOMEFKBwxKAwPBKAwQEBJwxTxVsw$ROBwQExQwTxPwCxPQBOqwyRQwBQEFzxIIVwPEBwPQFIIwzLRIAKoQwALwFQsw!BOExMPwQExQoPwTEVwPEBwExAwILKDBOwzxOBwQFJBPwQExKwQEBwLQEBOwALzQLOPs
-%EBOBwTxPwKLQEFKDwBIPBwQLwALsw%EBwABBAwExAwxIOBxAVwyBBKwALKBwxKAwQEBOBwTxPwKLwDLFKDwyxzHsw5QwKLTwExAwyBBKwyBzLJBwxwNRBPQFLKwLCwELTwQEBVwTBOBwDLFKDwQLwyBwxyIBwQLwDBQwLRQwLCwQEFPwPFQRxQFLKwxKAwBPzxMBs
-$ELRIAwEBwTOFQBwFQwALTKvw%ExQwTxPwQEBwNRBPQFLKwORKKFKDwQEOLRDEwEFPwJFKAsw4BwzLRIAKoQwyBIFBSBwTExQwExAwGRPQwExMMBKBAwxKAwEBwHKBTwKLyLAVwBIPBwTLRIAwyBIFBSBwEFJwxPwTBIIsw1SBKwFCwEBwALzRJBKQBAwTExQwExAwExMMBKBAwyVwTOFQFKDwFQwALTKqwEBwPQFIIwAFAKoQwyBIFBSBwxKVLKBwTLRIAwPQFIIwyBIFBSBwFQsw$LwQEBwNRBPQFLKwOBJxFKBAsw*xPwFQwyBwTLOQEwFQwQLwxzQRxIIVwTOFQBwFQwALTKv
-%EBOBwTxPwPLJBQEFKDwFKwQEBwPHVsw*ExQwBUxzQIVwTxPwRMwQEBOBwTxPKoQwFJJBAFxQBIVwzIBxOswYRQwQEBOBwTxPwABCFKFQBIVwPLJBQEFKDwFKwQEBwPHVwxKAwFQwTxPwDBQQFKDwyFDDBOwxKAwyFDDBOs
-$EBwExAwyBBKwQLIAwQFJBwxKAwQFJBwxDxFKwQExQwQEBwJLPQwFJMLOQxKQwPQBMPwTBOBwQEBwCFOPQwxKAwQEBwIxPQsw5QwTxPwPLJBQEFKDwQExQwPEBwzxOOFBAwTFQEFKwEBOwFKwBSBOVQEFKDwPEBwAFAqwyRQwQEBKwEBwPELTBAwRMwxKAwAFPORMQBAwBSBOVQEFKDsw4BwQLIAwEBOwQExQwPEBwExAwFQwTOLKDsw%EBwCFOPQwPQBMwTxPKoQwQEBwJLPQwFJMLOQxKQsw%EBwIxPQwPQBMwTxPKoQwQEBwJLPQwFJMLOQxKQsw5QwTxPwQEBwKBUQwPQBMwQExQwTxPwQEBwJLPQwFJMLOQxKQs
-%EBwQOxFIwQLwQEBwIBCQwExAwxwp0xKDBO"w0Lw`LQw!xPPpwPFDKwQBIIFKDwMBLMIBwQLwQxHBwQEBwQOxFIwQLwQEBwOFDEQsw%EFPwTxPKoQwQEBwTxVw-BHBwxMMOLxzEBAwEFPwEFHFKDsw#xQEBOwQExKwxwTxOKFKDqw-BHBwOBxAwQEBwPFDKwxPwxKwFKSFQxQFLKwQLwBUMILOBwxKwxOBxwQExQwTLRIAwyBwxASBKQROLRPwxKAwBUzFQFKDswXPwQEBwLQEBOPwFKwQEBwDOLRMwxIIwPEFQBAwQLwQEBwOFDEQqw-BHBwPIFMMBAwMxPQwQEBwAxKDBOwPFDKwQLwyBDFKwxKwxASBKQROBwEBwTLRIAwIxQBOwOBDOBQs
-
+Never stick your head in an oven unless you're looking for a baked bean.
+You seem as confused as a hungry baby in a topless bar.
+I bet you're about as useful as a one-armed trapeze artist with an itchy butt.
+Don't try to teach your grandma to suck eggs.
+I just got lost in thought. It was unfamiliar territory.
+Despite the cost of living, have you noticed how it remains so popular?
+Nothing is foolproof to a sufficiently talented fool.
+It is said that if you line up all the cars in the world end to end, someone would be stupid enough to try and pass them.
+Latest survey shows that 3 out of 4 people make up 75% of the world's population.
+Light travels faster than sound. This is why some people appear bright until you hear them speak.
+Everyone has a photographic memory. Some just don't have film.
+A day without sunshine is like, well, night.
+If you want to look young and thin, hang around old fat people.
+Everyone makes mistakes. The trick is to make mistakes when nobody is looking.
+Ambition is a poor excuse for not having enough sense to be lazy.
+Hard work pays off in the future. Laziness pays off now.
+If you can't convince them, confuse them.
+There are three kinds of lies: lies, damned lies, and statistics.
+Support bacteria--they're the only culture some people have.
+Hi.  You're about as welcome as a fart in a telephone box.
+It may be that your sole purpose in life is simply to serve as a bad example.
+If you lend someone $20 and never see that person again, it was probably worth it.
+Growing old is mandatory, growing up is optional.
+Friends may come and go, but enemies accumulate.
+Quotes are for people who can't express themselves in a coherent manner.
+I used to be indecisive; now I'm not so sure.
+Unix for stability. Macs for productivity. Windows for solitaire.
+Make it idiot-proof, and someone will make a better idiot.
+Duct tape is like the force. It has a light side and a dark side, and it holds the universe together.
+Avoid fruits and nuts.  You are what you eat.
+All the time you're saying to yourself, "I could do that, but I won't"--which is just another way of saying that you can't. -- Richard Feynman
+Ordinary fools are all right; you can talk to them and try to help them out.  But pompous fools--guys who are fools and are covering it all over and impressing people as to how wonderful they are with all this hocus pocus--THAT I CANNOT STAND! -- Richard Feynman
+You see, I get such fun out of thinking that I don't want to destroy this most pleasant machine that makes life such a big kick. -- Richard Feynman
+What do you care what other people think? -- Richard Feynman
+No foul deed goes unrewarded. -- Dan Garcia
+Hardware is just software that's hard to edit.
+Experience is what you get when you didn't get what you wanted.
+We don't have time to stop for gas--we're already late.
+Logic is a system whereby one may go wrong with confidence. -- Charles Kettering
+Committees can criticize, but they cannot create. -- Ogilvy
+There are some things so serious you have to laugh at them. -- Niels Bohr
+Well done is better than well said. -- Benjamin Franklin
+The best way to cheer yourself up: cheer everybody else up. -- Mark Twain
+Success is a journey, not a destination. -- Ben Sweetland
+Those who cannot change their minds cannot change anything. -- George Bernard Shaw
+Any damn fool can make something complex; it takes a genius to make something simple. -- Pete Seeger
+Change is not merely necessary to life; it is life. -- Alvin Toffler
+Your reputation is made by others.  Your character is made by you.
+Creativity is allowing yourself to make mistakes.  Art is knowing which ones to keep. -- Scott Adams
+I may disagree with everything you say, but will defend unto death your right to say it. -- Voltaire (orig. Beatrice Hall)
+No rain, no rainbows.
+Experience is something you don't usually get until just after you need it.
+Tell the truth, there's less to remember.
+Never get into a pissing contest with a skunk.
+The people that are crazy enough to think they can change the world are the ones that do.
+Time is nature's way of keeping everything from happening at once.
+If Columbus had an advisory committee, he'd probably still be at the dock. -- Arther Goldberg
+Men never do evil so completely and cheerfully as when they do it from religious conviction. -- Blaise Pascal
+I would rather be exposed to the inconveniences attending too much liberty than to those attending too small a degree of it. -- Thomas Jefferson
+If you thought before that science was certain--well, that is just an error on your part. -- Richard Feynman
+God is by definition the holder of all possible knowledge; it would be impossible for him to have faith in anything. Faith, then, is built upon ignorance and hope. -- Steve Allen
+Moral principles require moral reasoning; one cannot passively accept moral principles handed down by decree. -- Michael Shermer
+Absolute morality leads logically to absolute intolerance. -- Michael Shermer
+Some people say that life is short; that you could get hit by a bus at any moment; and that you have to live each day like it's your last. Bull [crap]! Life is long; you're probably not going to get hit by a bus; and you're going to have to live with the choices you make for the next 50 years. -- Chris Rock (in the movie "I Think I Love my Wife")
+Democracy is the recurrent suspicion that more than half of the people are right more than half of the time. -- E. B. White
+Those who would give up essential liberty to purchase a little temporary safety, deserve neither liberty nor safety. -- Benjamin Franklin
+When you find yourself in a hole, quit digging.
+Funny, I don't remember becoming absent-minded.
+Don't accept your dog's admiration as conclusive evidence that you are wonderful.
+Borrow money from pessimists--they don't expect it back.
+It's difficult to make predictions, especially when you're talking about the future.
+The man who can smile when things go wrong has thought of someone else he can blame it on. -- Robert Bloch
+Microsoft: "You've got questions.  We've got dancing paperclips."
+When I read about the evils of drinking, I gave up reading. -- Henny Youngman
+I am a firm believer in the people.  If given the truth, they can be depended upon to meet any national crisis.  The great point is to bring them the real facts...and beer. -- Abraham Lincoln
+What one generation tolerates, the next will embrace and take to excess.
+In a world without walls and fences, who needs Windows and Gates?
+Linux is like a wigwam: no Gates, no Windows, and Apache inside!
+A conclusion is simply the place where you got tired of thinking.
+Never lend people money.  It gives them amnesia.
+Dead owls don't give a hoot.
+Atheism: A non prophet organization.
+Discourage incest: ban country music.
+By the time you can make ends meet, they move the ends.
+The other line always moves faster... until you get in it.
+If you think you know what's going on around here, you're probably full of crap.
+Beauty is in the eye of the beerholder. -- Sean Fox
+Liberty is rendered even more precious by the recollection of servitude. -- Cicero
+The only thing I know about capitalism is that after a period the next letter should be big.
+Liberals are people who just haven't become victims yet
+If the right to privacy means anything at all in our society, it means that people are entitled to have thoughts, hopes, desires, and dreams beyond the grasping reach of a bureaucrat, an employer, or an electronic technician. -- Sam Ervin
+I mistook her estrogen for sweetness and arrogance for perspicacity. -- Dan Garcia
+Don't go around saying the world owes you a living.  The world owes you nothing.  It was here first. -- Mark Twain
+Success is just like being pregnant.  Everybody congratulates you, but nobody knows how many times you were screwed.
+I support gay marriage... but only if both chicks are hot!
+Everybody has to believe in something.  I believe I'll have another drink. -- W. C. Fields
+The problem with socialism is that eventually you run out of other people's money. -- Margaret Thatcher
+A government big enough to give you everything you want is strong enough to take everything you have. -- Thomas Jefferson
+Government's view of the economy could be summed up in a few short phrases: If it moves, tax it. If it keeps moving, regulate it. And if it stops moving, subsidize it. -- Ronald Reagan
+No arsenal, or no weapon in the arsenals of the world, is as formidable as the will and moral courage of free men and women. -- Ronald Reagan
+If we ever forget that we're one nation under God, then we will be a nation gone under. -- Ronald Reagan
+Socialism only works in two places: Heaven where they don't need it and hell where they already have it. -- Ronald Reagan
+Don't blame the booze.  If you're an asshole when you're drunk, it's because you're an asshole. -- Auggie Smith
+The mediocre teacher tells.  The good teacher explains.  The superior teacher demonstrates.  The great teacher inspires. -- William Ward
+Political correctness is a doctrine fostered by a delusional, illogical minority and rabidly promoted by an unscrupulous mainstream media which holds forth the proposition that it is entirely possible to pick up a turd by the clean end. -- Texas A&M student
+You can't be a real country unless you have a beer and an airline.  It helps if you have some kind of a football team or some nuclear weapons, but at the very least you need a beer. -- Frank Zappa
+Time spent enjoying beer is not deducted from one's lifespan.
+Beer is the answer, but I can't remember the question.
+Stupidity is not a handicap!  Park elsewhere!
+I don't suffer from insanity...I enjoy every minute of it!
+I'm not insensitive; I just don't care.
+Don't cry over spilled milk.  It could have been beer.
+Moses said to the children of Israel, "Pick up your shovels, mount your asses and camels, and I will lead you to the promised land."  Then about 75 years ago Roosevelt said, "Lay down your shovels, sit on your asses, and light up a Camel, this is the promised land."  Now Obama has stolen your shovel, taxed your asses, raised the price of Camels, and bankrupted the promised land.
+Stop Global Whining.
+Malt is the soul of beer and yeast gives it life, but the kiss of the hop is the vitality of that life!
+Do we really think that a government-dominated education is going to produce citizens capable of dominating their government, as the education of a truly vigilant self-governing people requires? -- Alan Keyes
+Most people can't think, most of the remainder won't think, the small fraction who do think mostly can't do it very well. The extremely tiny fraction who think regularly, accurately, creatively, and without self-delusion - in the long run, these are the only people who count. -- Robert Heinlein
+A democracy cannot exist as a permanent form of government. It can only exist until the voters discover that they can vote themselves money from the public treasure. From that moment on the majority always votes for the candidates promising the most money from the public treasury, with the result that a democracy always collapses over loose fiscal policy followed by a dictatorship. The average age of the world's great civilizations has been two hundred years. These nations have progressed through the following sequence: from bondage to spiritual faith, from spiritual faith to great courage, from courage to liberty, from liberty to abundance, from abundance to selfishness, from selfishness to complacency, from complacency to apathy, from apathy to dependency, from dependency back to bondage. -- Alexander Tyler
+America's abundance was created not by public sacrifices to "the common good," but by the productive genius of free men who pursued their own personal interests and the making of their own private fortunes. They did not starve the people to pay for America's industrialization. They gave the people better jobs, higher wages and cheaper goods with every new machine they invented, with every scientific discovery or technological advance -- and thus the whole country was moving forward and profiting, not suffering, every step of the way. -- Ayn Rand
+The government consists of a gang of men exactly like you and me. They have, taking one with another, no special talent for the business of government; they have only a talent for getting and holding office. Their principal device to that end is to search out groups who pant and pine for something they can't get and to promise to give it to them. Nine times out of ten that promise is worth nothing. The tenth time is made good by looting A to satisfy B. In other words, government is a broker in pillage, and every election is sort of an advance auction sale of stolen goods. -- H. L. Mencken
+There is no room in this country for hyphenated Americanism. The one absolutely certain way of bringing this nation to ruin, of preventing all possibility of its continuing to be a nation of all, would be to permit it to become a tangle of squabbling nationalities. -- Teddy Roosevelt
+American macrobrewed beer [e.g., Budweiser, Miller, Coors] is like a canoe...they are both effin close to water.
+Life is like a jar of jalapenos.  What you do today might burn your ass tomorrow.
+The democracy will cease to exist when you take away from those who are willing to work and give to those who would not. -- Thomas Jefferson
+The closest thing to a Budweiser is usually a redneck.
+The gene pool is in need of chlorine...badly.
+Being stupid in a "No Stupid" zone should be against the law!  And I declare the space surrounding me within a radius of 100 yards a "No Stupid" zone.
+A successful life is one that is lived through understanding and pursuing one's own path, not chasing after the dreams of others. -- Chin Ning Chu
+It does not require a majority to prevail but rather an irate, tireless minority keen to set brush fires in people's minds. -- Samuel Adams
+The last good thing written in C was Schubert's Symphony #9.
+I woke up this morning and someone had stolen all my stuff and replaced it with exact duplicates. -- Steven Wright
+82.7% of all statistics are made up on the spot. -- Steven Wright
+Lack of planning on your part does not constitute an emergency on my part.
+Trying's not important. Truck drivers could try. If I brought truck drivers in, sat them down and told them I was going to pay them $800,000 per year, they'd try from 3:00 am to midnight. I don't want tryers. I want doers. Try, hell. For $800,000 a year, I'd wrestle piranhas. -- Tommy Lasorda
+If man cannot be trusted to govern himself, how can he be trusted to govern others? -- Thomas Jefferson
+Nothing in all the world is more dangerous than sincere ignorance and conscientious stupidity. -- Martin Luther King
+Government should never be able to do what you can't do.  If you can't steal from your neighbor to give it to another neighbor, neither should your government! -- Ron Paul
+Failure should be our teacher, not our undertaker.  Failure is delay, not defeat.  It is a temporary detour, not a dead end.  Failure is something we can avoid only by saying nothing, doing nothing, and being nothing. -- Denis Waitley
+Experts say caffeine is bad for you, fat is bad for you, sugar is bad for you.  But don't worry because that's bad for you too.
+Diapers and politicians should be changed often.  Both for the same reason.
+Some ideas are so stupid that only intellectuals believe them. -- George Orwell
+Stupidity is carefully cultivated ignorance. -- Dan Garcia
+Democracy and socialism have nothing in common but one word, equality.  But notice the difference: while democracy seeks equality in liberty, socialism seeks equality in restraint and servitude. -- Alexis de Tocqueville
+The Net interprets censorship as damage and routes around it. -- John Gilmore
+The problem is not that there are problems. The problem is expecting otherwise and thinking that having problems is a problem. -- Theodore Isaac Rubin
+A nation of sheep will beget a government of wolves. -- Edward R. Murrow
+Our very unity has been strengthened by our pluralism.  We establish no religion in this country, we command no worship, we mandate no belief, nor will we ever.  Church and state are, and must remain, separate. -- Ronald Reagan
+[Put a condom on your tongue to] contain the orgasm of your ignorance. -- Andrea Brambilla
+Ineptocracy: A system of government where the least capable to lead are elected by the least capable of producing, and where the members of society least likely to sustain themselves or succeed are rewarded with goods and services paid for by the confiscated wealth of a diminishing number of producers.
+To learn who rules over you, simply find out who you are not allowed to criticize. -- Voltaire
+The difference between genius and stupidity is that genius has its limits. -- Albert Einstein
+Don't try to understand women.  Women understand women, and they hate each other.
+Religion.  It's given people hope in a world torn apart by religion. -- Jon Stewart
+We're with the government.  We don't have a sense of humor.
+We must reject the idea that every time a law's broken, society is guilty rather than the lawbreaker. It is time to restore the American precept that each individual is accountable for his actions. -- Ronald Reagan
+It's time to kick ass and chew bubble gum, and I'm all out of gum. -- Duke Nukem
+I have approximate answers and possible beliefs and different degrees of certainty about different things, but I'm not absolutely sure about anything. -- Richard Feynman
+The world doesn't need more people with good grades.  The world needs people who see the really tough problems as puzzles and have the tenacity and creative capacity to solve them. -- Gever Tulley
+I would rather have questions that can't be answered than answers that can't be questioned. -- Richard Feynman (attributed)
+Confidence is silent.  Insecurities are loud.
+Failure is no fun.  It can be awful.  But living so cautiously that you never fail is worse. -- J.K. Rowling
+The moment we want to believe something, we suddenly see all the arguments for it and become blind to the arguments against it. -- George Bernard Shaw
+80% of people don't know their percentages, and the other half don't give a damn.
+Thank God you guys are using percentages!  I'm one of the 3/2 of Americans who don't understand fractions.
+You could be dyslexic like me.  7 out of 5 people have it.
+50% of people are below average.
+There are 10 types of people: those who know binary, those who don't, and those who weren't expecting it in base 3.
+Ignorance is a state.  Willful ignorance is a choice.  It's the definition of stupidity. -- Dan Garcia and Jean Gourd
+You can believe what you want to believe, but no one has to respect that.  We have to acknowledge you have that belief, but we dont have to respect that belief. -- Patton Oswalt
+Statistically, six out of seven dwarfs are not Happy.  Yet only one of out seven dwarfs is Grumpy.
+I before E, except when you run a feisty heist on a weird beige foreign neighbor...and caffeine-string atheists reinventing protein at their leisure...plebeians may deign to forfeit either that or seize the language and reinvent it...
+If it is important to you, you'll find a way.  If not, you'll find an excuse.
+I never lose.  Either I win or I learn.
+Skills can be taught.  Character you either have or you don't have. -- Anthony Bourdain
+Your body is not a temple, it's an amusement park.  Enjoy the ride. -- Anthony Bourdain
+Luck is not a business model. -- Anthony Bourdain
+Without new ideas success can become stale. -- Anthony Bourdain
+If we don't believe in freedom of expression for people we despise, we don't believe in it at all. -- Noam Chomsky
+True ignorance is not the absence of knowledge, but the refusal to acquire it. -- Karl Popper
+It is possible to commit no mistakes and still lose.  That is not a weakness; that is life. -- Captain Jean-Luc Picard
+Many that live deserve death.  And some that die deserve life.  Can you give it to them?  Then do not be too eager to deal out death in judgement, for even the very wise cannot see all ends. -- Gandalf
+Give a man a fish and feed him for a day.  Don't teach a man to fish and feed yourself.  He's a grown man, and fishing is not that hard -- Ron Swanson
+There's only one thing I hate more than lying, and that's skimmed milk -- which is water that's lying about being milk.  -- Ron Swanson
+Never half ass two things.  Whole ass one thing. -- Ron Swanson
+They asked how well I understood theoretical physics.  I said I have a theoretical degree in physics.  They said welcome aboard. -- Fantastic
+If serving is below you, leadership is beyond you.
+Spectacular achievement is always preceded by unspectacular preparation. -- Robert H. Schuller
+You want to know the difference between a master and a beginner?  The master has failed more times than the beginner has ever tried.
+You are not entitled to your opinion.  You are entitled to your informed opinion.  No one is entitled to be ignorant. -- Harlan Ellison
+Don't wish it was easier, wish you were better.  Don't wish for less problems, wish for more skills.  Don't wish for less challenges, wish for more wisdom. -- Jim Rohn
+Discipline is the bridge between goals and accomplishment. -- Jim Rohn
+Motivation is what gets you started.  Habit is what keeps you going. -- Jim Rohn
+You must take personal responsibility.  You cannot change the circumstances, the seasons, or the wind, but you can change yourself.  That is something you have charge of. -- Jim Rohn
+Learn how to be happy with what you have while you pursue all that you want. -- Jim Rohn
+Formal education will make you a living; self-education will make you a fortune. -- Jim Rohn
+No one else 'makes us angry.' We make ourselves angry when we surrender control of our attitude. -- Jim Rohn
+You are the average of the five people you spend the most time with. -- Jim Rohn
+Any machine can be a smoke machine if you use it wrong enough.
+The problem is not people being uneducated.  The problem is that they are educated just enough to believe what they've been taught and not educated enough to question what they've been taught.
+People say nothing is impossible, but I do nothing every day.
+When I think of books, I touch my shelf.
+Never trust an atom.  They make up everything.
+I am a nobody.  Nobody is perfect.  Therefore, I am perfect.
+Always remember that you're unique, just like everyone else.
+There are two rules to success in life: 1) Dont tell everything that you know.
+Doubt kills more dreams than failure ever will.
+Don't wait until you're on your deathbed to tell people how you really feel because you could be too weak to raise your middle finger.
+The problem with divorcing "what" and "how" in education is that knowing about things is not the same as understanding them. -- Robert and Michele Root-Bernstein
+Social media gives legions of idiots the right to speak when they once only spoke at a bar after a glass of wine, without harming the community...but now they have the same right to speak as a Nobel Prize winner.  It's the invasion of the idiots. -- Umberto Eco
+The world is full of things that upset people.  But most of us deal with it and move on and don't try and burn the planet down.  There is no right in the world not to be offended.  That right simply doesn't exist -- Salman Rushdie
+Never attribute to malice that which is adequately explained by stupidity (Hanlon's razor).
+The fundamental cause of the trouble is that in the modern world the stupid are cocksure while the intelligent are full of doubt. -- Bertrand Russell
+Stupidity is using a rule where adding more data doesn't improve your chances of getting [a problem] right.  In fact, it makes it more likely you'll get it wrong. -- David Krakauer

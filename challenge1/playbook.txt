@@ -1,0 +1,15 @@
+CHALLENGE 1 (Operation B2B) PLAYBOOK
+
+ASSUMPTIONS:
+Double decode cipher
+    - first with keyword or caeser
+    - second with b64
+Must know how to filter for b64 programmatically
+    - strip words in dictionary
+Must know how to identify base64
+
+BASE64 IDENTIFIERS:
+length of string is multiple of 4
+
+https://base64.guru/tools/validator
+    - checks whether a given text is BASE64 (may be quicker)
