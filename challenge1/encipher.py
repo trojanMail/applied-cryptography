@@ -51,7 +51,8 @@ if __name__ == "__main__":
     # func contains functions and parameters
     func = []
     A1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/? "
-    A2 = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
+    #A2 =" -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
+    A2 = "1234567890"
     PLAIN = ""
 
     # get cipher
@@ -82,7 +83,7 @@ if __name__ == "__main__":
     elif func[2] == "A2":
         func[2] = A2
 
-    print(func[2])
+    #print(func[2])
     # read in file form stdin
     try:
         for line in stdin:
