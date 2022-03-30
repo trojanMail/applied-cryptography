@@ -23,11 +23,6 @@ def _sub(x: str, p: str)-> str:
         return ALPHABET[p.index(x)]
     except:
         return x
-    
-def simple_DICT():
-    """Simplifies words in global dictionary."""
-    for i,j in enumerate(DICT):
-        DICT[i] = j.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?").lower()
 
 def _check_valid(mx: tuple, p:str, k)-> tuple:
     """Return the plaintext string with the most matching words in the dictionary."""
@@ -44,7 +39,18 @@ def _check_valid(mx: tuple, p:str, k)-> tuple:
     if (v > mx[1]):
         mx = p,v,k
     return mx
-    
+  
+def _send_file(p: str, k: int):
+    with open(str(k),"w") as test:
+                test.write(p)
+
+def _get_newalphabet(k: str)-> str:
+    """Returns alphabet with new key."""
+    alpha = ALPHABET
+    for i in k:
+        alpha = alpha.replace(i,'')
+    k += alpha
+    return k
 
 def keyword(d: list):
     """Decrypt a given cipher using a brute force technique with a dictionary."""
@@ -79,14 +85,10 @@ def caesar():
                 continue
             l+=_shift(char,key)
         valid = _check_valid(valid,l,key)
-        #send_file(l,key)
+        #_send_file(l,key)
         l=""
         key+=1
     return valid
-
-def send_file(p: str, k: int):
-    with open(str(k),"w") as test:
-                test.write(p)
 
 def filter_dict(d: list):
     """Filters dictionary by removing non-valid keywords."""
@@ -94,8 +96,6 @@ def filter_dict(d: list):
     k = True
     for i in d:
         if len(i) == 1:
-            continue
-        elif i[0] != ALPHABET[40]:
             continue
         else:
             word = sorted(i.lower())
@@ -107,13 +107,18 @@ def filter_dict(d: list):
             nd.append(i)
         k = True
     return nd
-def _get_newalphabet(k: str)-> str:
-    """Returns alphabet with new key."""
-    alpha = ALPHABET
-    for i in k:
-        alpha = alpha.replace(i,'')
-    k += alpha
-    return k
+
+def simple_DICT():
+    """Simplifies words in global dictionary."""
+    for i,j in enumerate(DICT):
+        DICT[i] = j.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?").lower()
+
+def simp_dict(dict: list):
+    """Simplifies dictionary."""
+    new_dict=[]
+    for word in dict:
+        new_dict.append(word.lower())
+    return new_dict
 
 if __name__ == "__main__":
     # GLOBALS 
@@ -134,7 +139,7 @@ if __name__ == "__main__":
         exit()
    
     # get filtered dictionary
-    new_dict = filter_dict(DICT)
+    
 
     # read in file form stdin
     try:
@@ -148,10 +153,17 @@ if __name__ == "__main__":
     simple_DICT()
 
     # choose correct cipher
-    if argv[1] == "caesar":
+    if argv[1] == "-c":
         V = caesar()
-    if argv[1] == "keyword":
-        V = keyword(new_dict)
+    if argv[1] == "-k":
+        k_dict = filter_dict(DICT)
+        V = keyword(k_dict)
+    # if argv[1] == "-v":
+    #     v_dict = simp_dict()
+    #     V = viginere(v_dict)
+    if argv[1] == "-h":
+        print("./decipher -c/k/v -o/p < cipher.txt")
+        exit()
 
     # display
     if V[1] == -2:

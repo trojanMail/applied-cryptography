@@ -87,8 +87,9 @@ def decrypt():
         valid = _checkvalid(plain,word,valid)
 
         if (valid[1] >= THRESH):
-            key = _subcipher(valid[2],CIPHER)
+            key = _subcipher(valid[2],CIPHER[length:])
             plain = _subkeycipher(key)
+            plain = valid[0]+plain
             return valid[2],plain
 
     return valid[2],valid[0]

@@ -7,32 +7,12 @@ Description: This program enciphers a given file with caesar or keyword cipher.
 
 from sys import argv,stdin
 
-def caesar()-> str:
-    """Returns caesar cipher of a given text with a given key."""
-    l = ""
-    for char in PLAIN:
-        if char == '\n':
-            l+=char
-            continue
-        l+=_shift(char,func[1])
-    return l
-
+"""PRIVATE FUNCTIONS"""
 def _shift(c: str, k: int)->str:
     """Shifts a given character c by key k."""
     print(c)
     c =(func[2].index(c)+k)%len(func[2])
     return func[2][c]
-
-def keyword()-> str:
-    """Returns keyword cipher of a givent text with a given key."""
-    l = ""
-    new_alpha = _get_newalphabet(func[1])
-    for char in PLAIN:
-            if char == '\n':
-                l+=char
-                continue
-            l+=_sub(char,new_alpha)
-    return l
 
 def _sub(c: str, a: str)-> str:
     """Substitutes a character in a cipher for a character in a alphabet."""    
@@ -46,6 +26,28 @@ def _get_newalphabet(k: str)-> str:
     k += alpha
     return k
 
+"""PUBLIC FUNCTIONS"""
+def caesar()-> str:
+    """Returns caesar cipher of a given text with a given key."""
+    l = ""
+    for char in PLAIN:
+        if char == '\n':
+            l+=char
+            continue
+        l+=_shift(char,func[1])
+    return l
+
+def keyword()-> str:
+    """Returns keyword cipher of a givent text with a given key."""
+    l = ""
+    new_alpha = _get_newalphabet(func[1])
+    for char in PLAIN:
+            if char == '\n':
+                l+=char
+                continue
+            l+=_sub(char,new_alpha)
+    return l
+    
 if __name__ == "__main__":
     # choose correct cipher
     # func contains functions and parameters
