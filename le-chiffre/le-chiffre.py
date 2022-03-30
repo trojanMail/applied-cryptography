@@ -28,8 +28,6 @@ def _check_valid(mx: tuple, p:str, k:int)-> tuple:
 def decrypt():
     """Decrypt a given vigenere cipher using a brute force technique with a dictionary."""
 
-    return valid
-
 if __name__ == "__main__":
     # GLOBALS 
     ALPHABET = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
