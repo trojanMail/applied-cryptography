@@ -162,8 +162,9 @@ def viginere():
         valid = _checkvalid(valid,plain,word)
 
         if (valid[1] >= THRESH):
-            key = _subcipher(valid[2],CIPHER)
+            key = _subcipher(valid[2],CIPHER[length:])
             plain = _subkeycipher(key)
+            plain = valid[0]+plain
             return valid[2],plain
 
     return valid[2],valid[0]
@@ -195,8 +196,8 @@ def simple_dict(dict: list):
 
 if __name__ == "__main__":
     # GLOBALS 
-    #ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/? "
-    ALPHABET = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
+    ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/? "
+    #ALPHABET = " -,;:!?/.'\"()[]$&#%012345789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxyYzZ"
     
     # challenge1 alphabets
     #ALPHABET = "7JZv. 964jMLh)5QtAS2PXWaFU8,/cpkY'O(Tqr?dsEmbRwINVKBez1=3+H0GyfxCiD\"lg:!uo"
