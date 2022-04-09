@@ -202,6 +202,7 @@ if __name__ == "__main__":
     # challenge1 alphabets
     #ALPHABET = "7JZv. 964jMLh)5QtAS2PXWaFU8,/cpkY'O(Tqr?dsEmbRwINVKBez1=3+H0GyfxCiD\"lg:!uo"
     #ALPHABET = "GHXJ+g5y6Asd3ZB4D12NT8mQEcarbSIo7zwjltOWu9eP/pFVL0KYqx=hRUCkviMf"
+    
     CIPHER = ""
     THRESH = .75
     DICT = []
