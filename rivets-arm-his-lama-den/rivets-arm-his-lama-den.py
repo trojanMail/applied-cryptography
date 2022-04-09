@@ -38,12 +38,15 @@ def _valide(a:int,b:int)->bool:
     """Determines if an exponent a is valid."""
     return _isprime(a) and (gcd(a,b)==1)
 
-def _getes(a: int)->list:
+def _getes(a: int, b:list)->list:
     """Return all valid e values for a given z."""
     es = []
     for i in range(3,a-1,2):
         if (_valide(i,a)):
-            es.append(i)
+            if i in b:
+                continue
+            else:
+                es.append(i)
     return es
 
 def _getmodinverse(a: int,b: int)->int:
@@ -61,7 +64,7 @@ def _exception(a: int)->None:
         print("Error: No factor found.")
         exit()
     elif a == 0:
-        print("Error: Invalid plaintext.")
+        print("Error: Invalid plaintext.--")
     
 
 def decrypt(n: int,cipher: list):
@@ -70,8 +73,35 @@ def decrypt(n: int,cipher: list):
     print("n={}".format(n))
     z = _getz(p,q)
     print("z={}\n--".format(z))
+
+    com_primes = [3,5,17,257,65537]
+    for i in com_primes:
+        if (not _valide(i,z)):
+            com_primes.remove(i)
     
-    es = _getes(z)
+    es = com_primes
+    es += _getes(z,com_primes)
+
+    for e in com_primes:
+        print("Trying e={}".format(e))
+        d = _getmodinverse(e,z)
+        print("d={}".format(d))
+        k_priv = (d,n)
+        print("Public Key: {}\nPrivate Key: {}\n".format((65537,n),k_priv))
+        plain = ""
+
+        for c in cipher:
+            try:
+                p = _getascii(c,k_priv)
+                if not p.isascii():
+                    plain = ""
+                    _exception(0)
+                    break
+                plain+=p
+            except KeyboardInterrupt:
+                exit()
+        if plain != "":
+            return plain
 
     for e in es:
         print("Trying e={}".format(e))
