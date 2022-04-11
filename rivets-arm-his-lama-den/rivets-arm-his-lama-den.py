@@ -42,12 +42,12 @@ def _valide(a:int,b:int)->bool:
 def _getes(a: int, b:list)->list:
     """Return all valid e values for a given z."""
     es = []
-    for i in range(3,a-1,2):
-        if (_valide(i,a)):
-            if i in b:
-                continue
-            else:
+    i = 1
+    while (i < a-1):
+        if(_valide(i,a)):
+            if i not in b:
                 es.append(i)
+        i = pow(2,i)+1
     return es
 
 def _getmodinverse(a: int,b: int)->int:
