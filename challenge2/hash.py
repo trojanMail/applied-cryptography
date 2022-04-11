@@ -38,7 +38,7 @@ if __name__== "__main__":
         exit()
 
     try:
-        with open ('dictionary-04.txt','r') as file:
+        with open ('dictionary.txt','r') as file:
             for line in file:
                 dictionary.append(line.strip('\n'))
     except:
