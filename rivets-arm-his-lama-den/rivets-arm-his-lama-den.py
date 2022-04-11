@@ -18,7 +18,7 @@ def parsestdin(c: str)->tuple:
 
 def _factor(a: int)->tuple:
     """Factors a number n as the product of two primes."""
-    for i in range(3,int(a**1/2)+1,2):
+    for i in range(3,int(pow(a,1/2))+1,2):
         if not (a%i):
             return i, a//i
     return _exception(1)
@@ -58,7 +58,8 @@ def _getmodinverse(a: int,b: int)->int:
         
 def _getascii(a: int,b: tuple)->str:
     """Returns the decrypted ascii character using a private key."""
-    return chr(a**b[0] % b[1])
+    return chr(pow(a,b[0],b[1]))
+    #return chr(a**b[0] % b[1])
     
 def _exception(a: int)->None:
     """Exceptions. (Ideally this would be a class that inherits from the Exception built-in class, but that was outside of the scope of this program."""
