@@ -5,7 +5,7 @@ Date: 2022-04-13
 Description: This program brute forces the private key of rsa encrypted characters.
 """
 
-from sys import stdin,exit
+from sys import argv, stdin,exit
 from math import lcm, gcd
 
 def parsestdin(c: str)->tuple:
@@ -18,7 +18,7 @@ def parsestdin(c: str)->tuple:
 
 def _factor(a: int)->tuple:
     """Factors a number n as the product of two primes."""
-    for i in range(3,int(a**1/2)+1,2):
+    for i in range(3,int(pow(a,1/2))+1,2):
         if not (a%i):
             return i, a//i
     return _exception(1)
@@ -42,12 +42,12 @@ def _valide(a:int,b:int)->bool:
 def _getes(a: int, b:list)->list:
     """Return all valid e values for a given z."""
     es = []
-    for i in range(3,a-1,2):
-        if (_valide(i,a)):
-            if i in b:
-                continue
-            else:
+    i = 1
+    while (i < a-1):
+        if(_valide(i,a)):
+            if i not in b:
                 es.append(i)
+        i = pow(2,i)+1
     return es
 
 def _getmodinverse(a: int,b: int)->int:
@@ -58,7 +58,8 @@ def _getmodinverse(a: int,b: int)->int:
         
 def _getascii(a: int,b: tuple)->str:
     """Returns the decrypted ascii character using a private key."""
-    return chr(a**b[0] % b[1])
+    return chr(pow(a,b[0],b[1]))
+    #return chr(a**b[0] % b[1])
     
 def _exception(a: int)->None:
     """Exceptions. (Ideally this would be a class that inherits from the Exception built-in class, but that was outside of the scope of this program."""
@@ -69,7 +70,7 @@ def _exception(a: int)->None:
         print("Error: invalid plaintext.\n--")
     
 
-def decrypt(n: int,cipher: list):
+def decrypt(n: int,cipher: list)->str:
     p,q = _factor(n)
     print("p={}, q={}".format(p,q))
     print("n={}".format(n))
@@ -131,6 +132,28 @@ def decrypt(n: int,cipher: list):
             return plain
     return plain
 
+def encrypt(m: str,p: int,q:int,e:int)->str:
+    """Returns text encrypted with rsa.""" 
+    cipher = ""
+    n = p*q
+    z = _getz(p,q)
+    print("z:{}".format(z))
+    print("n:{}".format(n))
+    com_exp = [3,5,17,257,65537]
+    for i in com_exp:
+        if (not _valide(i,z)):
+            com_exp.remove(i)
+
+    es = com_exp + _getes(z,com_exp)
+    if e not in es:
+        return "{} is not a valid exponent value. Try:\n{}".format(e,es)
+    d = _getmodinverse(e,z)
+    print("Public Key: {}\nPrivate Key: {}".format((e,n),(d,n)))
+    for i in m:
+        c = str(pow(ord(i),e,n))+","
+        cipher+=c
+    return cipher
+
 if __name__ == "__main__":
     CIPHER = ""
     # read in file form stdin
@@ -141,7 +164,18 @@ if __name__ == "__main__":
         print("File with ciphered text invalid.\nEnsure the cipher text is piped into the program as shown below:\npython decipherer.py < cipher")
         exit()
 
-    N,pcipher = parsestdin(CIPHER)
-    print(decrypt(N,pcipher))
+    if argv[1] == '-e':
+        # try:
+        p = int(argv[2])
+        q = int(argv[3])
+        e = int(argv[4])
+        print(encrypt(CIPHER,p,q,e))
+        # except:
+        #     print("./rsa.py -e <p:int> <q:int> <e:int>")
+    elif argv[1] == '-d':
+        N,pcipher = parsestdin(CIPHER)
+        print(decrypt(N,pcipher))
+    else:
+        print("./rsa.py -e/d")
 
 
