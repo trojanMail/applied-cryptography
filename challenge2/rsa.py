@@ -149,9 +149,11 @@ def encrypt(m: str,p: int,q:int,e:int)->str:
         return "{} is not a valid exponent value. Try:\n{}".format(e,es)
     d = _getmodinverse(e,z)
     print("Public Key: {}\nPrivate Key: {}".format((e,n),(d,n)))
+
     for i in m:
         c = str(pow(ord(i),e,n))+","
         cipher+=c
+    cipher = "{}\n{}".format(n,cipher)
     return cipher
 
 if __name__ == "__main__":
@@ -165,13 +167,13 @@ if __name__ == "__main__":
         exit()
 
     if argv[1] == '-e':
-        # try:
-        p = int(argv[2])
-        q = int(argv[3])
-        e = int(argv[4])
-        print(encrypt(CIPHER,p,q,e))
-        # except:
-        #     print("./rsa.py -e <p:int> <q:int> <e:int>")
+        try:
+            p = int(argv[2])
+            q = int(argv[3])
+            e = int(argv[4])
+            print(encrypt(CIPHER,p,q,e))
+        except:
+            print("./rsa.py -e <p:int> <q:int> <e:int>")
     elif argv[1] == '-d':
         N,pcipher = parsestdin(CIPHER)
         print(decrypt(N,pcipher))
