@@ -3,6 +3,7 @@
 Name: Raven A. Alexander
 Date: 2022-04-13
 Description: This program brute forces the private key of rsa encrypted characters.
+Python Version: 3.10.2
 """
 
 from sys import argv, stdin,exit
