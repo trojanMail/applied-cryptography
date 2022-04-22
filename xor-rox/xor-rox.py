@@ -17,7 +17,7 @@ INPUT_KEY = ""
 
 def getKey()->tuple:
     """Gets the next key to be used for bitwise operations."""
-    return (randint(0,999),randint(0,999),randint(0,999))
+    return (randint(0,255),randint(0,255),randint(0,255))
 def andOp(a:tuple,b:tuple)->tuple:
     """Performs and operations on two tuples of RGB values."""
     return (a[0] & b[0], a[1] & b[1], a[2] & b[2])
@@ -61,4 +61,6 @@ if __name__ == "__main__":
     and_img.save(AND_IMAGE)
     or_img.save(OR_IMAGE)
     xor_img.save(XOR_IMAGE)
+    with open('input.key','w') as f:
+        f.write(INPUT_KEY)
 
