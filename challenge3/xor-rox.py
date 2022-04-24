@@ -13,9 +13,18 @@ INPUT_IMAGE = "input.png"
 AND_IMAGE = "and.png"
 OR_IMAGE = "or.png"
 XOR_IMAGE = "xor.png"
-INPUT_KEY = ""
 
 def getKey()->tuple:
+    """Gets and parses a key file to be used for bitwise operations."""
+    key=[]
+    with open('input.key','r',encoding='utf-8') as f:
+        for line in f:
+            temp = tuple(map(int,line.strip('\n').split(',')))
+            key.append(temp)
+    return key
+                
+
+def makeKey()->tuple:
     """Gets the next key to be used for bitwise operations."""
     return (randint(0,255),randint(0,255),randint(0,255))
 def andOp(a:tuple,b:tuple)->tuple:
@@ -29,8 +38,9 @@ def xorOp(a:tuple,b:tuple)->tuple:
     return (a[0] ^ b[0], a[1] ^ b[1], a[2] ^ b[2])
 
 
-if __name__ == "__main__":
-
+def encipher()->None:
+    input_key = ""
+    
     # get the input image
     img = Image.open(INPUT_IMAGE)
     and_img = img.copy()
@@ -49,11 +59,11 @@ if __name__ == "__main__":
     while i < rows:
         j = 0
         while j < cols:
-            key = getKey()
+            key = makeKey()
             and_pixels[i,j] = andOp(and_pixels[i,j],key)
             or_pixels[i,j] = orOp(or_pixels[i,j],key)
             xor_pixels[i,j] = xorOp(xor_pixels[i,j],key)
-            print(f"{key[0]},{key[1]},{key[2]}")
+            input_key+=(f"{key[0]},{key[1]},{key[2]}\n")
             j+=1
         i+=1
 
@@ -62,4 +72,16 @@ if __name__ == "__main__":
     or_img.save(OR_IMAGE)
     xor_img.save(XOR_IMAGE)
 
+    with open('input.key','w') as f:
+        f.write(input_key)
 
+def decipher()->None:
+    and_img = Image.open(AND_IMAGE)
+    or_img = Image.open(OR_IMAGE)
+    xor_img = Image.open(XOR_IMAGE)
+
+    
+
+if __name__ == "__main__":
+    encipher()
+    getKey()
