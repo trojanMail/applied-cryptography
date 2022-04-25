@@ -2,7 +2,7 @@
 """
 Name: Raven A. Alexander
 Date: 2022-04-27
-Description: This program performs bitwise operations on RGB values obtained from an inputted image.
+Description: This program performs bitwise operations on RGB values obtained from an image.
 Python Version: 3.10.2 64-bit
 """
 from random import randint
