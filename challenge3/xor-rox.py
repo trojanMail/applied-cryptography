@@ -7,6 +7,7 @@ Python Version: 3.10.2 64-bit
 """
 from random import randint
 from PIL import Image
+from sys import argv
 
 # the images
 INPUT_IMAGE = "input.png"
@@ -25,7 +26,7 @@ def getKey()->tuple:
                 
 
 def makeKey()->tuple:
-    """Gets the next key to be used for bitwise operations."""
+    """Creates the next key to be used for bitwise operations."""
     return (randint(0,255),randint(0,255),randint(0,255))
 def andOp(a:tuple,b:tuple)->tuple:
     """Performs and operations on two tuples of RGB values."""
@@ -75,13 +76,41 @@ def encipher()->None:
     with open('input.key','w') as f:
         f.write(input_key)
 
-def decipher()->None:
-    and_img = Image.open(AND_IMAGE)
-    or_img = Image.open(OR_IMAGE)
+def decipher(k:list[tuple])->None:
+    # open images
+    # and_img = Image.open(AND_IMAGE)
+    # or_img = Image.open(OR_IMAGE)
     xor_img = Image.open(XOR_IMAGE)
-
     
+    # load images
+    # and_pixels = and_img.load()
+    # or_pixels = or_img.load()
+    xor_pixels = xor_img.load()
+
+    # assume all images are the same size
+    rows,cols = xor_img.size
+
+    # operate on pixels
+    l = 0
+    i = 0
+    while i < rows:
+        j = 0
+        while j < cols:
+            # and and or operations are destructive
+            # and_pixels[i,j] = andOp(and_pixels[i,j],k[l])
+            # or_pixels[i,j] = orOp(or_pixels[i,j],k[l])
+            xor_pixels[i,j] = xorOp(xor_pixels[i,j],k[l])
+            j+=1
+            l +=1
+        i += 1
+
+    # and_img.save(AND_IMAGE)
+    # or_img.save(OR_IMAGE)
+    xor_img.save(XOR_IMAGE)
 
 if __name__ == "__main__":
-    encipher()
-    getKey()
+    if argv[1] == '-e':
+        encipher()
+    elif argv[1] == '-d':
+        key = getKey()
+        decipher(key)
