@@ -22,9 +22,7 @@ def getKey()->tuple:
         for line in f:
             temp = tuple(map(int,line.strip('\n').split(',')))
             key.append(temp)
-    return key
-                
-
+    return key                
 def makeKey()->tuple:
     """Creates the next key to be used for bitwise operations."""
     return (randint(0,255),randint(0,255),randint(0,255))
@@ -37,7 +35,6 @@ def orOp(a:tuple,b:tuple)->tuple:
 def xorOp(a:tuple,b:tuple)->tuple:
     """Performs xor operations on two tuples of RGB values."""
     return (a[0] ^ b[0], a[1] ^ b[1], a[2] ^ b[2])
-
 
 def encipher()->None:
     input_key = ""

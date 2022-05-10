@@ -2,30 +2,24 @@
 """
 Name: Raven A. Alexander
 Date: 2022-05-02
-Description: This program implements the Rijndael algorithm to brute force a given ciphertext.
+Description: This program implements the Rijndael algorithm to dictionary attack a given ciphertext.
 """
-from os import remove
-from PyPDF2 import PdfFileReader
 import re
-from sys import stdin
+from sys import stdin,stdout
 from hashlib import sha256
 from Crypto import Random
 from Crypto.Cipher import AES
-from base64 import b64encode
 from math import floor
-import magic
 
-# the AES block size to use
-BLOCK_SIZE = 16
-# the padding character to use to make the plaintext a multiple of BLOCK_SIZE in length
-PAD_WITH = "#"
-THRESHOLD = .75
+NOT_TEXT = False # set true if file is not text
+BLOCK_SIZE = 16 # the AES block size to use
+PAD_WITH = "#" # padding character for plaintext
+THRESHOLD = .75 
+DICT = 'dictionary1-3.txt' #dictionary4, dictionary1-3, dictionary5
+FILE_TYPE = b'%PDF-1.4' # file header to look for
+FILTER = b"" # comment out if no filter or replace with ""
 
-def checkFile(p:bytes)->str:
-	"""Returns file type of bytes"""
-	return magic.from_buffer(p)
-
-def simp_dict(dict:list):
+def simp_dict(dict:list) -> list[str]:
 	"""Simplifies dictionary."""
 	new_dict=[]
 	for word in dict:
@@ -33,37 +27,55 @@ def simp_dict(dict:list):
 	return new_dict
 
 def get_keys()->list[str]:
+	"""Get a list of words from a file."""
 	k = []
-	with open('dictionary5.txt','rb') as f:
+	with open(DICT,'rb') as f:
 		k = f.read().split(b'\n')
 	return k
 
+def simp_keys(k:list[bytes])->list[bytes]:
+	"""Simplify the words of a given list(k)."""
+	sk = []
+	for i in k:
+		if i.lower().startswith(FILTER.lower()):
+			sk.append(i)
+	return sk
+
 def _checkValid(p:str,dict:list)->bool:
+	"""Check a given plaintext(p) by comparing words in p to words in a dictionary(d)."""
 	v = 0
 	filter_p = re.split(r'\n| ',p)
 	while(filter_p.count("")):
 		filter_p.remove('')
 	for word in filter_p:
 		if word.strip("`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?").lower() in dict:
-			v += 1
-		if (float(v)/len(filter_p)>=THRESHOLD):
-			return True
-	return False
-
-def _checkPDF(f:str)-> None:
-	"""Attempts to read pdf. If an error occurs the check failed."""
-	PdfFileReader(f(f,'rb'))
+			continue
+		else:
+			v+=1
+		if ((len(filter_p)-float(v))/len(filter_p)<THRESHOLD):
+			return False
+	return True
 
 def decrypt(text:bytes, k:list[bytes]):
+	"""Dictionary attack a given AES encrypted cipher(text) with a given list of keys(k)."""
+	# get iv
 	iv = text[:16]
-	# ensurses the partitioned cipher is a factor of block size
+
+	# get partition for plaintext
 	index = floor(len(text[16:])*3/4)
 	if index > 480: index = 480
 
 	# simplified dictionary to be used for parsing
 	dictionary = simp_dict(k)
+
+	# simplify key list with filter
+	try:
+		if (FILTER != b""):
+			k = simp_keys(k)
+	except:
+		pass
+
 	plain = ""
-	fkey=""
 	for i in k:
 		# hash the key (SHA-256) to ensure that it is 32 bytes long
 		key = sha256(i).digest()
@@ -74,38 +86,16 @@ def decrypt(text:bytes, k:list[bytes]):
 		# the ciphertext is after the IV (so, skip 16 bytes)
 		plain = cipher.decrypt(text[16:])
 
-		# get filetype
-		file_type=re.split(r' |\n|\\|/|\t',checkFile(plain))[0]
-
-		# check if pdf
-		if (file_type == 'PDF'):
-			filename = f"{k.index(i)}.{file_type.lower()}"
-			with open(filename,'wb') as file:
-				file.write(plain.strip(bytes(PAD_WITH,'utf-8')))
-			try:
-				_checkPDF(filename)
-				fkey = i.decode()
-				break
-			except:
-				remove(filename)
-				continue
+		# check if valid plaintext
+		if NOT_TEXT:
+			if (FILE_TYPE in plain[:10]): return plain,i
 		else:	
 			temp = plain.decode('utf-8','ignore')[16:index]
-			if _checkValid(temp,dictionary):
-				fkey = i.decode()
-				break
-
-
-	# decode plaintext and ignore non decipherable characters
-	plain = plain.decode('utf-8','ignore')
-	
-	# remove padding
-	if plain[-1] == PAD_WITH:
-		plain=plain.strip(PAD_WITH)
-
-	return plain,fkey
+			if _checkValid(temp,dictionary): return plain,i
 			
 def encrypt(plaintext, key):
+	"""Encrypts a text with AES encryption."""
+	pad = bytes(PAD_WITH,'utf-8')
 	# hash the key (SHA-256) to ensure that it is 32 bytes long
 	key = sha256(key).digest()
 	# generate a random 16-byte IV
@@ -114,7 +104,7 @@ def encrypt(plaintext, key):
 	# encrypt the ciphertext with the key using CBC block cipher mode
 	cipher = AES.new(key, AES.MODE_CBC, iv)
 	# if necessary, pad the plaintext so that it is a multiple of BLOCK SIZE in length
-	plaintext += (BLOCK_SIZE - len(plaintext) % BLOCK_SIZE) * PAD_WITH
+	plaintext += (BLOCK_SIZE - len(plaintext) % BLOCK_SIZE) * pad
 	# add the IV to the beginning of the ciphertext
 	# IV is at [:16]; ciphertext is at [16:]
 	ciphertext = iv + cipher.encrypt(plaintext)
@@ -122,17 +112,34 @@ def encrypt(plaintext, key):
 	return ciphertext
 
 if __name__ == "__main__":
+	# get keys from dictionary
 	keys = get_keys()
 
+	# get ciphertext from stdin
 	ciphertext = stdin.buffer.read().rstrip(b"\n")
-	# print(chardet.detect(ciphertext[16:]))
 
-	# #print(ciphertext.decode('cp1253'))
-	# # iv = Random.new().read(BLOCK_SIZE)
-	
-	# # print(chardet.detect(iv))
-	# #print(ciphertext.split(b'\x'))
+	# decrypt
+	plaintext,key = decrypt(ciphertext,keys)
 
-	plaintext,key = decrypt(ciphertext, keys)
+	# if file is anything other than text
+	if NOT_TEXT:
+		# strip padding
+		p = plaintext.strip(bytes(PAD_WITH,'utf-8'))
+		# write to stdout
+		stdout.write(f"KEY={key.decode()}\n")
+		stdout.buffer.write(p)
+	else:
+		p = plaintext.decode('utf-8','ignore')
+		# remove padding
+		if p[-1] == PAD_WITH:
+			p=p.strip(PAD_WITH)
+		# display
+		stdout.write(f"KEY={key.decode()}\n{p}")	
 
-	print(f"KEY={key}\n{plaintext}")
+	# encrypt
+
+	# plaintext = stdin.buffer.read().rstrip(b"\n")
+
+	# plaintext = encrypt(plaintext,key)
+
+	# stdout.buffer.write(ciphertext)

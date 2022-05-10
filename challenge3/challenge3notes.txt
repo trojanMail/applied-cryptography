@@ -1,0 +1,10 @@
+pdf includes
+correct key (in dict) to decrypt assistance.b64 containing hint
+correct key from dict to decrypt view-me.enc
+documentation
+decrypted image (deliverable)
+
+encrypted image is xored
+view-enc has the key to decrypt the xor image
+can't dictionary attack view-enc 
+	(assitance file should give hint - need to b64 decode it and decrypt it - should be bruteforcable)
