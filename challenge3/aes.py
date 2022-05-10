@@ -4,27 +4,20 @@ Name: Raven A. Alexander
 Date: 2022-05-02
 Description: This program implements the Rijndael algorithm to dictionary attack a given ciphertext.
 """
-from os import remove
-from typing import BinaryIO
-from PyPDF2 import PdfFileReader
 import re
 from sys import stdin,stdout,argv,exit
 from hashlib import sha256
 from Crypto import Random
 from Crypto.Cipher import AES
 from math import floor
-import magic
 
-# the AES block size to use
-BLOCK_SIZE = 16
-# the padding character to use to make the plaintext a multiple of BLOCK_SIZE in length
-PAD_WITH = "#"
-THRESHOLD = .75
-DICT = 'dictionary5.txt' #dictionary4, dictionary1-3, dictionary5
-
-def checkFile(p:bytes)->str:
-	"""Returns file type of bytes"""
-	return magic.from_buffer(p)
+NOT_TEXT = True # set true if file is not text
+BLOCK_SIZE = 16 # the AES block size to use
+PAD_WITH = "#" # padding character for plaintext
+THRESHOLD = .75 
+DICT = 'dictionary.txt' #dictionary4, dictionary1-3, dictionary5
+FILE_TYPE = b'%PDF-1.4' # file header to look for
+FILTER = b"" # comment out if no filter or replace with ""
 
 def simp_dict(dict:list):
 	"""Simplifies dictionary."""
@@ -34,6 +27,7 @@ def simp_dict(dict:list):
 	return new_dict
 
 def get_keys()->list[str]:
+	"""Get a list of words from a file."""
 	k = []
 	with open(DICT,'rb') as f:
 		k = f.read().split(b'\n')
@@ -60,24 +54,26 @@ def _checkValid(p:str,dict:list)->bool:
 			return False
 	return True
 
-def _checkPDF(f:str)-> None:
-	"""Attempts to read pdf. If an error occurs the check failed."""
-	PdfFileReader(open(f,'rb'))
-
-def decrypt(text:BinaryIO, k:list[bytes]):
+def decrypt(text:bytes, k:list[bytes])->tuple:
+	"""Dictionary attack a given AES encrypted cipher(text) with a given list of keys(k)."""
+	# get iv
 	iv = text[:16]
-	# ensurses the partitioned cipher is a factor of block size
+
+	# get partition for plaintext
 	index = floor(len(text[16:])*3/4)
 	if index > 480: index = 480
 
 	# simplified dictionary to be used for parsing
 	dictionary = simp_dict(k)
-	# simplify key list for cipher4
-	if DICT == 'dictionary4.txt':
-		k = simp_keys(k)
+
+	# simplify key list with filter
+	try:
+		if (FILTER != b""):
+			k = simp_keys(k)
+	except:
+		pass
 
 	plain = ""
-	fkey=""
 	for i in k:
 		# hash the key (SHA-256) to ensure that it is 32 bytes long
 		key = sha256(i).digest()
@@ -88,28 +84,14 @@ def decrypt(text:BinaryIO, k:list[bytes]):
 		# the ciphertext is after the IV (so, skip 16 bytes)
 		plain = cipher.decrypt(text[16:])
 
-		# get filetype
-		file_type=re.split(r' |\n|\\|/|\t',checkFile(plain))[0]
-		# check if pdf
-		if ('PDF' in file_type):
-			filename = f"{k.index(i)}.{file_type.lower()}"
-			with open(filename,'wb') as file:
-				file.write(plain.strip(bytes(PAD_WITH,'utf-8')))
-			try:
-				_checkPDF(filename)
-				fkey = i
-				remove(filename)
-				return plain,fkey
-			except:
-				remove(filename)
-				continue
+		# check if valid plaintext
+		if NOT_TEXT:
+			if (FILE_TYPE in plain[:10]): return plain,i
 		else:	
 			temp = plain.decode('utf-8','ignore')[16:index]
-			if _checkValid(temp,dictionary):
-				fkey = i
-				return plain,fkey
+			if _checkValid(temp,dictionary): return plain,i
 			
-def encrypt(plaintext: BinaryIO, key: bytes):
+def encrypt(plaintext: bytes, key: bytes)->str:
 
 	pad = bytes(PAD_WITH,'utf-8')
 	# hash the key (SHA-256) to ensure that it is 32 bytes long
@@ -130,36 +112,31 @@ def encrypt(plaintext: BinaryIO, key: bytes):
 if __name__ == "__main__":
 	try:
 		if argv[1] == '-h':
-			print("""This program brute forces rsa encryption using a dictionary attack.\n./rsa.py --options\n-e : encrypt with rsa. Must pass a key as the next options as follows:\n\t./rsa.py -e [key]\n-d : decrypt with rsa. Ensure the dictionary name is correct inside of the program""")
+			print("""This program brute forces aes encryption using a dictionary attack.\n./aes.py --options\n-e : encrypt with aes. Must pass a key as the next options as follows:\n\t./aes.py -e [key]\n-d : decrypt with aes. Ensure the dictionary name is correct inside of the program""")
 			exit()
-	except IndexError as e:
-		print(e,'\nUse -h for help.',end='')
-		exit()
-
-	try:
-		if argv[1] == '-d':
+			
+		elif argv[1] == '-d':
 			try:
 			# get keys from dictionary
 				keys = get_keys()
 			except:
-				print('[!] Parsing dictionary failed. Ensure the dictionary is inside the same directory as rsa.py and that it is named correctly inside of rsa.py.')
+				print('[!] Parsing dictionary failed. Ensure the dictionary is inside the same directory as the program and that it is named correctly.')
 				exit()
 
-			# get ciphertext from stdin
 			ciphertext = stdin.buffer.read().rstrip(b"\n")
 
 			# decrypt
-			plaintext,key = decrypt(ciphertext, keys)
+			plaintext,key = decrypt(ciphertext,keys)
 
-			# decode plaintext and ignore non decipherable characters
-			p = plaintext.decode('utf-8','ignore')
-			
-			# remove padding
-			if p[-1] == PAD_WITH:
-				p=p.strip(PAD_WITH)
-
-			# display
-			stdout.write(f"KEY={key.decode()}\n{p}")	
+			# if file is anything other than text
+			if NOT_TEXT:
+				p = plaintext.strip(bytes(PAD_WITH,'utf-8'))
+				stdout.write(f"KEY={key.decode()}\n")
+				stdout.buffer.write(p)
+			else:
+				p = plaintext.decode('utf-8','ignore')
+				if p[-1] == PAD_WITH: p=p.strip(PAD_WITH)
+				stdout.write(f"KEY={key.decode()}\n{p}")	
 
 		elif argv[1] == '-e':
 			key = argv[2].encode()
@@ -169,6 +146,7 @@ if __name__ == "__main__":
 			ciphertext = encrypt(plaintext,key)
 
 			stdout.buffer.write(ciphertext)
+
 	except IndexError as e:
 		print(e,'\nUse -h for help.',end='')
 		exit()
